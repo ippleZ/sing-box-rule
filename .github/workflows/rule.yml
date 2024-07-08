@@ -13,9 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: "Clear rule folder"
-      run: |
-        rm -rf ./rule/*
     - name: "Setup sing-box"
       env:
         SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.9.0/sing-box_1.9.0_linux_amd64.deb"
@@ -34,7 +31,7 @@ jobs:
     - name: Run script
       run: python ../main.py
       working-directory: ./rule/
-    - name: Commit 和 push config.json
+    - name: Commit and push config.json
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
